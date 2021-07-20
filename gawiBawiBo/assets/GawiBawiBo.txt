@@ -1,0 +1,11 @@
+
+가위 바위 보 
+가위 = scissors
+바위 = rock
+보 = paper
+
+green tones: https://colorhunt.co/palette/2f5d625e8b7ea7c4bcdfeeea 
+
+red tones: https://colorhunt.co/palette/ffd6b6ea7362b742425c2626
+
+grey tones: https://colorhunt.co/palette/f4f4f2e8e8e8bbbfca495464
