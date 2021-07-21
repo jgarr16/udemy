@@ -40,10 +40,26 @@ class ViewController: UIViewController {
         var homeNumber = Int.random(in: 0...2)
         var visitorNumber = Int.random(in: 0...2)
         
-        handImageHome.image = winHomeArray[homeNumber]
-        handImageVisitor.image = loseVisitorArray[visitorNumber]
-    }
-
-
+        if homeNumber == visitorNumber {
+            handImageHome.image = greyHomeArray[homeNumber]
+            handImageVisitor.image = greyVisitorArray[visitorNumber]
+        } else if homeNumber == 2 {
+            if visitorNumber == 0 {
+                handImageHome.image = loseHomeArray[homeNumber]
+                handImageVisitor.image = winVisitorArray[visitorNumber]
+            }
+        } else if visitorNumber == 2 {
+            if homeNumber == 0 {
+                handImageHome.image = winHomeArray[homeNumber]
+                handImageVisitor.image = loseVisitorArray[visitorNumber]
+            }
+        } else if homeNumber > visitorNumber {
+            handImageHome.image = winHomeArray[homeNumber]
+            handImageVisitor.image = loseVisitorArray[visitorNumber]
+        } else {
+            handImageHome.image = loseHomeArray[homeNumber]
+            handImageVisitor.image = winVisitorArray[visitorNumber]
+        }
 }
 
+}
