@@ -30,8 +30,9 @@ class ViewController: UIViewController {
         handImageVisitor.image = greyVisitorArray[0]
     }
     
-    @IBAction func playButtonPressed(_ sender: UIButton) {
-        
+    // made a button that is the size of the entire screen, and is transparent, so the players can tap anywhere on the screen to play a round
+    @IBAction func playButtonPressed(_ sender: Any) {
+    
         // get random numbers for the players when dice are rolled
         // 3 possible numbers:
         // 1 = Gawi
