@@ -81,6 +81,30 @@ class ViewController: UIViewController {
                 visitorWins = visitorWins + 1
                 print("visitorWins: \(visitorWins)\n")
             }
+        } else if homeNumber == 1 {
+            if visitorNumber == 0 {
+                handImageHome.image = winHomeArray[homeNumber]
+                handImageVisitor.image = loseVisitorArray[visitorNumber]
+                homeWins = homeWins + 1
+                print("homeWins: \(homeWins)\n")
+            } else if visitorNumber == 3 {
+                handImageHome.image = loseHomeArray[homeNumber]
+                handImageVisitor.image = winVisitorArray[visitorNumber]
+                visitorWins = visitorWins + 1
+                print("visitorWins: \(visitorWins)\n")
+            }
+        } else if visitorNumber == 1 {
+            if homeNumber == 0 {
+                handImageHome.image = loseHomeArray[homeNumber]
+                handImageVisitor.image = winVisitorArray[visitorNumber]
+                visitorWins = visitorWins + 1
+                print("visitorWins: \(visitorWins)\n")
+            } else if homeNumber == 3 {
+                handImageHome.image = winHomeArray[homeNumber]
+                handImageVisitor.image = loseVisitorArray[visitorNumber]
+                homeWins = homeWins + 1
+                print("homeWins: \(homeWins)\n")
+            }
         } else {
             handImageHome.image = loseHomeArray[homeNumber]
             handImageVisitor.image = winVisitorArray[visitorNumber]
