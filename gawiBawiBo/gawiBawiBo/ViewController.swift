@@ -20,10 +20,18 @@ class ViewController: UIViewController {
     let loseHomeArray = [#imageLiteral(resourceName: "gawiLose"),#imageLiteral(resourceName: "bawiLose"),#imageLiteral(resourceName: "boLose")]
     let loseVisitorArray = [#imageLiteral(resourceName: "alt_gawiLose"), #imageLiteral(resourceName: "alt_bawiLose"), #imageLiteral(resourceName: "alt_boLose")]
     
+    // set some variables for scorekeeping
+    var homeWins = 0
+    var visitorWins = 0
+    var plays = 0
+    var ties = 0
+
+    
     // Created the IBOutlets by Control-dragging from the two die images in the Main.storyboard to here - this created the linkage between the UI and the code
 
     @IBOutlet weak var handImageHome: UIImageView!
     @IBOutlet weak var handImageVisitor: UIImageView!
+    @IBOutlet weak var playCountLabel: UILabel!
     override func viewDidLoad() {
         // show the greyHome and greyVisitor Arrays in sequence "Gawi, Bawi, Bo"
         handImageHome.image = greyHomeArray[0]
@@ -40,27 +48,44 @@ class ViewController: UIViewController {
         // 3 = Bo
         var homeNumber = Int.random(in: 0...2)
         var visitorNumber = Int.random(in: 0...2)
+        plays = plays + 1
+        print("plays: \(plays)\n - Home: \(homeNumber)\n - Visitor: \(visitorNumber)")
+        
         
         if homeNumber == visitorNumber {
             handImageHome.image = greyHomeArray[homeNumber]
             handImageVisitor.image = greyVisitorArray[visitorNumber]
+            ties = ties + 1
+            print("ties: \(ties)\n")
         } else if homeNumber == 2 {
             if visitorNumber == 0 {
                 handImageHome.image = loseHomeArray[homeNumber]
                 handImageVisitor.image = winVisitorArray[visitorNumber]
+                visitorWins = visitorWins + 1
+                print("visitorWins: \(visitorWins)\n")
+            } else if visitorNumber == 1 {
+                handImageHome.image = winHomeArray[homeNumber]
+                handImageVisitor.image = loseVisitorArray[visitorNumber]
+                homeWins = homeWins + 1
+                print("homeWins: \(homeWins)\n")
             }
         } else if visitorNumber == 2 {
             if homeNumber == 0 {
                 handImageHome.image = winHomeArray[homeNumber]
                 handImageVisitor.image = loseVisitorArray[visitorNumber]
+                homeWins = homeWins + 1
+                print("homeWins: \(homeWins)\n")
+            } else if homeNumber == 1 {
+                handImageHome.image = loseHomeArray[homeNumber]
+                handImageVisitor.image = winVisitorArray[visitorNumber]
+                visitorWins = visitorWins + 1
+                print("visitorWins: \(visitorWins)\n")
             }
-        } else if homeNumber > visitorNumber {
-            handImageHome.image = winHomeArray[homeNumber]
-            handImageVisitor.image = loseVisitorArray[visitorNumber]
         } else {
             handImageHome.image = loseHomeArray[homeNumber]
             handImageVisitor.image = winVisitorArray[visitorNumber]
+            visitorWins = visitorWins + 1
+            print("visitorWins: \(visitorWins)\n")
         }
-}
-
+    }
 }
