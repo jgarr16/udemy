@@ -14,6 +14,7 @@ class ViewController: UIViewController {
     // 2. Lose - Visitor & Home
     // 3. Win - Visitor & Home
     let greyHomeArray = [#imageLiteral(resourceName: "gawiGrey"),#imageLiteral(resourceName: "bawiGrey"),#imageLiteral(resourceName: "boGrey")]
+    let iconText = ["가위","바위","보"]
     let greyVisitorArray = [#imageLiteral(resourceName: "alt_gawiGrey"), #imageLiteral(resourceName: "alt_bawiGrey"), #imageLiteral(resourceName: "alt_boGrey")]
     let winHomeArray = [#imageLiteral(resourceName: "gawiWin"),#imageLiteral(resourceName: "bawiWin"),#imageLiteral(resourceName: "boWin")]
     let winVisitorArray = [#imageLiteral(resourceName: "alt_gawiWin"), #imageLiteral(resourceName: "alt_bawiWin"), #imageLiteral(resourceName: "alt_boWin")]
@@ -43,73 +44,68 @@ class ViewController: UIViewController {
     
         // get random numbers for the players when dice are rolled
         // 3 possible numbers:
-        // 1 = Gawi
-        // 2 = Bawi
-        // 3 = Bo
-        var homeNumber = Int.random(in: 0...2)
-        var visitorNumber = Int.random(in: 0...2)
-        plays = plays + 1
-        print("plays: \(plays)\n - Home: \(homeNumber)\n - Visitor: \(visitorNumber)")
+        // 1 = Gawi 가위
+        // 2 = Bawi 바위
+        // 3 = Bo 보
+        let homeNumber = Int.random(in: 0...2)
+        let visitorNumber = Int.random(in: 0...2)
         
+        // this function will be called when the home player wins a round
+        func homeVictory(homeNumber: Int, visitorNumber: Int) {
+            handImageHome.image = winHomeArray[homeNumber]
+            handImageVisitor.image = loseVisitorArray[visitorNumber]
+            homeWins = homeWins + 1
+            plays = plays + 1
+            print("play: \(plays)\n - Visitor: \(iconText[visitorNumber]) -- Rounds: \(visitorWins)\n - Home: \(iconText[homeNumber]) -- Rounds: \(homeWins)")
+            print("homeWins: \(homeWins)\n")
+        }
         
-        if homeNumber == visitorNumber {
-            handImageHome.image = greyHomeArray[homeNumber]
-            handImageVisitor.image = greyVisitorArray[visitorNumber]
-            ties = ties + 1
-            print("ties: \(ties)\n")
-        } else if homeNumber == 2 {
-            if visitorNumber == 0 {
-                handImageHome.image = loseHomeArray[homeNumber]
-                handImageVisitor.image = winVisitorArray[visitorNumber]
-                visitorWins = visitorWins + 1
-                print("visitorWins: \(visitorWins)\n")
-            } else if visitorNumber == 1 {
-                handImageHome.image = winHomeArray[homeNumber]
-                handImageVisitor.image = loseVisitorArray[visitorNumber]
-                homeWins = homeWins + 1
-                print("homeWins: \(homeWins)\n")
-            }
-        } else if visitorNumber == 2 {
-            if homeNumber == 0 {
-                handImageHome.image = winHomeArray[homeNumber]
-                handImageVisitor.image = loseVisitorArray[visitorNumber]
-                homeWins = homeWins + 1
-                print("homeWins: \(homeWins)\n")
-            } else if homeNumber == 1 {
-                handImageHome.image = loseHomeArray[homeNumber]
-                handImageVisitor.image = winVisitorArray[visitorNumber]
-                visitorWins = visitorWins + 1
-                print("visitorWins: \(visitorWins)\n")
-            }
-        } else if homeNumber == 1 {
-            if visitorNumber == 0 {
-                handImageHome.image = winHomeArray[homeNumber]
-                handImageVisitor.image = loseVisitorArray[visitorNumber]
-                homeWins = homeWins + 1
-                print("homeWins: \(homeWins)\n")
-            } else if visitorNumber == 3 {
-                handImageHome.image = loseHomeArray[homeNumber]
-                handImageVisitor.image = winVisitorArray[visitorNumber]
-                visitorWins = visitorWins + 1
-                print("visitorWins: \(visitorWins)\n")
-            }
-        } else if visitorNumber == 1 {
-            if homeNumber == 0 {
-                handImageHome.image = loseHomeArray[homeNumber]
-                handImageVisitor.image = winVisitorArray[visitorNumber]
-                visitorWins = visitorWins + 1
-                print("visitorWins: \(visitorWins)\n")
-            } else if homeNumber == 3 {
-                handImageHome.image = winHomeArray[homeNumber]
-                handImageVisitor.image = loseVisitorArray[visitorNumber]
-                homeWins = homeWins + 1
-                print("homeWins: \(homeWins)\n")
-            }
-        } else {
+        // this function is for the visitor's wins
+        func visitorVictory(homeNumber: Int, visitorNumber: Int) {
             handImageHome.image = loseHomeArray[homeNumber]
             handImageVisitor.image = winVisitorArray[visitorNumber]
             visitorWins = visitorWins + 1
+            plays = plays + 1
+            print("play: \(plays)\n - Visitor: \(iconText[visitorNumber]) -- Rounds: \(visitorWins)\n - Home: \(iconText[homeNumber]) -- Rounds: \(homeWins)")
             print("visitorWins: \(visitorWins)\n")
+        }
+        
+        // this function will be used when the players tie
+        func tieRound(homeNumber: Int, visitorNumber: Int) {
+            handImageHome.image = greyHomeArray[homeNumber]
+            handImageVisitor.image = greyVisitorArray[visitorNumber]
+            ties = ties + 1
+            plays = plays + 1
+            print("play: \(plays)\n - Visitor: \(iconText[visitorNumber]) -- Rounds: \(visitorWins)\n - Home: \(iconText[homeNumber]) -- Rounds: \(homeWins)")
+            print("ties: \(ties)\n")
+        }
+        
+        if homeNumber == visitorNumber {
+            tieRound(homeNumber: homeNumber, visitorNumber: visitorNumber)
+        } else if homeNumber == 2 {
+            if visitorNumber == 0 {
+                visitorVictory(homeNumber: homeNumber, visitorNumber: visitorNumber)
+            } else if visitorNumber == 1 {
+                homeVictory(homeNumber: homeNumber, visitorNumber: visitorNumber)
+            }
+        } else if visitorNumber == 2 {
+            if homeNumber == 0 {
+                homeVictory(homeNumber: homeNumber, visitorNumber: visitorNumber)
+            } else if homeNumber == 1 {
+                visitorVictory(homeNumber: homeNumber, visitorNumber: visitorNumber)
+            }
+        } else if homeNumber == 1 {
+            if visitorNumber == 0 {
+                homeVictory(homeNumber: homeNumber, visitorNumber: visitorNumber)
+            } else if visitorNumber == 3 {
+                visitorVictory(homeNumber: homeNumber, visitorNumber: visitorNumber)
+            }
+        } else if visitorNumber == 1 {
+            if homeNumber == 0 {
+                visitorVictory(homeNumber: homeNumber, visitorNumber: visitorNumber)
+            } else if homeNumber == 3 {
+                homeVictory(homeNumber: homeNumber, visitorNumber: visitorNumber)
+            }
         }
     }
 }
