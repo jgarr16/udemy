@@ -47,3 +47,14 @@
 //
 //exercise()
 
+//var multi = """
+//    this is a multiline variable
+//    let's see what it does
+//    but not on the last line
+//    """
+//
+//print(multi)
+
+
+
+print("okay, this is cheesey")
