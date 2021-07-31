@@ -55,43 +55,31 @@
 //
 //print(multi)
 
-//
-//func nested(name: String,version: Int) {
-//
-//    print(version)
-//    print(name)
-//    if version == 2 {
-//        print(version)
-//        print(name)
-//        nest2(name)
-//    }
-//    if version == 3 {
-//        print(version)
-//        print(name)
-//        nest3(name)
-//    }
-//    if version == 4 {
-//        print(version)
-//        print(name)
-//        nest4(name)
-//    }
-//    
-//    func nest2(name: String){
-//        print("\(name)'s second tier")
-//    }
-//    func nest3(name: String){
-//        print("\(name)'s third tier")
-//    }
-//    func nest4(name: String){
-//        print("\(name)'s fourth tier")
-//    }
-//    
-//
-//}
-//
-//nested(name:"John", version: Int.random(in: 2...4))
 
+func randver(selection: Int) {
 
-let names = ["Zoey", "Chloe", "Amani", "Amaia"]
-let randomName = names.randomElement()!
+    func nest(selection: Int){
+        if selection == 5 {
+            print("5")
+        }
+        if selection == 4 {
+            print("4")
+        }
+        if selection == 3 {
+            print("3")
+        }
+        if selection == 2 {
+            print("2")
+        }
+        if selection == 1 {
+            print("1")
+        }
+    }
+ 
+    nest(selection: selection)
+}
+
+let selection = Int.random(in: 1...5)
+randver(selection: selection)
+
 
