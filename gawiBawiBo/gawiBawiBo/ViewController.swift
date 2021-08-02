@@ -33,10 +33,17 @@ class ViewController: UIViewController {
     @IBOutlet weak var handImageHome: UIImageView!
     @IBOutlet weak var handImageVisitor: UIImageView!
     @IBOutlet weak var playCountLabel: UILabel!
+    @IBOutlet weak var visitorWinsLabel: UILabel!
+    @IBOutlet weak var homeWinsLabel: UILabel!
+    
+    
     override func viewDidLoad() {
         // show the greyHome and greyVisitor Arrays in sequence "Gawi, Bawi, Bo"
         handImageHome.image = greyHomeArray[0]
         handImageVisitor.image = greyVisitorArray[0]
+        playCountLabel.text = "Plays: \(plays) - Ties: \(ties)"
+        homeWinsLabel.text = "Home: \(homeWins)"
+        visitorWinsLabel.text = "Visitor: \(visitorWins)"
     }
     
     // made a button that is the size of the entire screen, and is transparent, so the players can tap anywhere on the screen to play a round
@@ -58,6 +65,9 @@ class ViewController: UIViewController {
             plays = plays + 1
             print("play: \(plays)\n - Visitor: \(iconText[visitorNumber]) -- Rounds: \(visitorWins)\n - Home: \(iconText[homeNumber]) -- Rounds: \(homeWins)")
             print("homeWins: \(homeWins)\n")
+            playCountLabel.text = "Plays: \(plays) - Ties: \(ties)"
+            homeWinsLabel.text = "Home: \(homeWins)"
+            visitorWinsLabel.text = "Visitor: \(visitorWins)"
         }
         
         // this function is for the visitor's wins
@@ -68,6 +78,9 @@ class ViewController: UIViewController {
             plays = plays + 1
             print("play: \(plays)\n - Visitor: \(iconText[visitorNumber]) -- Rounds: \(visitorWins)\n - Home: \(iconText[homeNumber]) -- Rounds: \(homeWins)")
             print("visitorWins: \(visitorWins)\n")
+            playCountLabel.text = "Plays: \(plays) - Ties: \(ties)"
+            homeWinsLabel.text = "Home: \(homeWins)"
+            visitorWinsLabel.text = "Visitor: \(visitorWins)"
         }
         
         // this function will be used when the players tie
@@ -78,6 +91,9 @@ class ViewController: UIViewController {
             plays = plays + 1
             print("play: \(plays)\n - Visitor: \(iconText[visitorNumber]) -- Rounds: \(visitorWins)\n - Home: \(iconText[homeNumber]) -- Rounds: \(homeWins)")
             print("ties: \(ties)\n")
+            playCountLabel.text = "Plays: \(plays) - Ties: \(ties)"
+            homeWinsLabel.text = "Home: \(homeWins)"
+            visitorWinsLabel.text = "Visitor: \(visitorWins)"
         }
         
         if homeNumber == visitorNumber {

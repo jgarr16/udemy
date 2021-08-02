@@ -32,27 +32,48 @@
                                     <action selector="playButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Yfc-AP-u4L"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="btE-l2-4hh">
-                                <rect key="frame" x="161" y="435" width="92" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="btE-l2-4hh">
+                                <rect key="frame" x="136.5" y="434.5" width="141" height="27"/>
                                 <attributedString key="attributedText">
                                     <fragment content="Play Count: ">
                                         <attributes>
-                                            <font key="NSFont" metaFont="system" size="17"/>
+                                            <font key="NSFont" size="24" name="Arial-BoldMT"/>
                                             <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
                                         </attributes>
                                     </fragment>
                                 </attributedString>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Home Wins" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SNR-UV-8Jy">
+                                <rect key="frame" x="155" y="481.5" width="104" height="23"/>
+                                <fontDescription key="fontDescription" name="ArialMT" family="Arial" pointSize="20"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Visitor Wins" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nbQ-4o-JhP">
+                                <rect key="frame" x="154" y="391.5" width="106" height="23"/>
+                                <fontDescription key="fontDescription" name="ArialMT" family="Arial" pointSize="20"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="SNR-UV-8Jy" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="1HN-Dm-rQu"/>
+                            <constraint firstItem="btE-l2-4hh" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="6iY-oS-urj"/>
+                            <constraint firstItem="btE-l2-4hh" firstAttribute="top" secondItem="nbQ-4o-JhP" secondAttribute="bottom" constant="20" id="C7v-QT-aht"/>
+                            <constraint firstItem="btE-l2-4hh" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="Gmb-c9-17j"/>
+                            <constraint firstItem="nbQ-4o-JhP" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="avu-Ur-YeZ"/>
+                            <constraint firstItem="SNR-UV-8Jy" firstAttribute="top" secondItem="btE-l2-4hh" secondAttribute="bottom" constant="20" id="sI7-HK-mOb"/>
+                        </constraints>
                     </view>
                     <connections>
                         <outlet property="handImageHome" destination="Owo-Jk-r5l" id="vvT-aG-2zR"/>
                         <outlet property="handImageVisitor" destination="RXX-1s-aMe" id="6Le-P6-Ogb"/>
+                        <outlet property="homeWinsLabel" destination="SNR-UV-8Jy" id="4on-6H-zvh"/>
                         <outlet property="playCountLabel" destination="btE-l2-4hh" id="TIb-fg-Xyh"/>
+                        <outlet property="visitorWinsLabel" destination="nbQ-4o-JhP" id="Uey-5s-jBR"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
