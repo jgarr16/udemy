@@ -4,6 +4,7 @@
 //
 //  Created by John Garrigues on 7/19/21.
 //
+// TODO: add English language descriptions for the winner
 
 import UIKit
 
@@ -22,6 +23,7 @@ class ViewController: UIViewController {
     let loseVisitorArray = [#imageLiteral(resourceName: "alt_gawiLose"), #imageLiteral(resourceName: "alt_bawiLose"), #imageLiteral(resourceName: "alt_boLose")]
     let imageButton = [#imageLiteral(resourceName: "gawi"), #imageLiteral(resourceName: "bawi"), #imageLiteral(resourceName: "bo")]
     var showImageButton = true
+    var showLanguage = ""
     
     // set some variables for scorekeeping
     var homeWins = 0
@@ -66,6 +68,13 @@ class ViewController: UIViewController {
         }
     }
 
+    @IBAction func languageSwitch(_ sender: Any) {
+        if (sender as AnyObject).isOn {
+            showLanguage = "Hangul"
+        } else {
+            showLanguage = "English"
+        }
+    }
     
     // make a button that is almost the size of the entire screen, and is transparent, so the players can tap anywhere on the screen to play a round
     @IBAction func playButtonPressed(_ sender: Any) {

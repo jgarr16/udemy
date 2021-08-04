@@ -64,13 +64,22 @@
                                 <rect key="frame" x="87" y="607" width="240" height="128"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
-                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" title="nameImageSwitch" translatesAutoresizingMaskIntoConstraints="NO" id="nJG-LI-rr1">
+                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" title="nameImageSwitch" translatesAutoresizingMaskIntoConstraints="NO" id="nJG-LI-rr1">
                                 <rect key="frame" x="33" y="831" width="49" height="31"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="onTintColor" systemColor="systemGrayColor"/>
                                 <color key="thumbTintColor" systemColor="systemGray4Color"/>
                                 <connections>
                                     <action selector="nameImageSwitch:" destination="BYZ-38-t0r" eventType="valueChanged" id="uRe-j3-nsc"/>
+                                </connections>
+                            </switch>
+                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="vQQ-6l-pkg">
+                                <rect key="frame" x="332" y="831" width="49" height="31"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="onTintColor" systemColor="systemGrayColor"/>
+                                <color key="thumbTintColor" systemColor="systemGray4Color"/>
+                                <connections>
+                                    <action selector="languageSwitch:" destination="BYZ-38-t0r" eventType="valueChanged" id="nuR-j6-mV0"/>
                                 </connections>
                             </switch>
                         </subviews>
