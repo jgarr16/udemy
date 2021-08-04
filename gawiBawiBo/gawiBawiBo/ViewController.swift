@@ -20,6 +20,8 @@ class ViewController: UIViewController {
     let winVisitorArray = [#imageLiteral(resourceName: "alt_gawiWin"), #imageLiteral(resourceName: "alt_bawiWin"), #imageLiteral(resourceName: "alt_boWin")]
     let loseHomeArray = [#imageLiteral(resourceName: "gawiLose"),#imageLiteral(resourceName: "bawiLose"),#imageLiteral(resourceName: "boLose")]
     let loseVisitorArray = [#imageLiteral(resourceName: "alt_gawiLose"), #imageLiteral(resourceName: "alt_bawiLose"), #imageLiteral(resourceName: "alt_boLose")]
+    let imageButton = [#imageLiteral(resourceName: "gawi"), #imageLiteral(resourceName: "bawi"), #imageLiteral(resourceName: "bo")]
+    var showImageButton = false
     
     // set some variables for scorekeeping
     var homeWins = 0
@@ -30,6 +32,8 @@ class ViewController: UIViewController {
     
     // Created the IBOutlets by Control-dragging from the two die images in the Main.storyboard to here - this created the linkage between the UI and the code
 
+    @IBOutlet weak var nameImageHome: UIImageView!
+    @IBOutlet weak var nameImageVisitor: UIImageView!
     @IBOutlet weak var handImageHome: UIImageView!
     @IBOutlet weak var handImageVisitor: UIImageView!
     @IBOutlet weak var playCountLabel: UILabel!
@@ -44,9 +48,26 @@ class ViewController: UIViewController {
         playCountLabel.text = "Plays: \(plays) - Ties: \(ties)"
         homeWinsLabel.text = "Home: \(homeWins)"
         visitorWinsLabel.text = "Visitor: \(visitorWins)"
+        if showImageButton == true {
+            nameImageHome.image = imageButton[0]
+            nameImageVisitor.image = imageButton[1]
+        } else {
+            nameImageHome.image = nil
+            nameImageVisitor.image = nil
+        }
     }
     
-    // made a button that is the size of the entire screen, and is transparent, so the players can tap anywhere on the screen to play a round
+    // make a switch in bottom, left corner that allows us to show/hide name labels
+    @IBAction func nameImageSwitch(_ sender: Any) {
+        if (sender as AnyObject).isOn {
+            showImageButton = true
+        } else {
+            showImageButton = false
+        }
+    }
+
+    
+    // make a button that is almost the size of the entire screen, and is transparent, so the players can tap anywhere on the screen to play a round
     @IBAction func playButtonPressed(_ sender: Any) {
     
         // get random numbers for the players when dice are rolled
@@ -68,6 +89,13 @@ class ViewController: UIViewController {
             playCountLabel.text = "Plays: \(plays) - Ties: \(ties)"
             homeWinsLabel.text = "Home: \(homeWins)"
             visitorWinsLabel.text = "Visitor: \(visitorWins)"
+            if showImageButton == true {
+                nameImageHome.image = imageButton[homeNumber]
+                nameImageVisitor.image = imageButton[visitorNumber]
+            } else {
+                nameImageHome.image = nil
+                nameImageVisitor.image = nil
+            }
         }
         
         // this function is for the visitor's wins
@@ -81,6 +109,13 @@ class ViewController: UIViewController {
             playCountLabel.text = "Plays: \(plays) - Ties: \(ties)"
             homeWinsLabel.text = "Home: \(homeWins)"
             visitorWinsLabel.text = "Visitor: \(visitorWins)"
+            if showImageButton == true {
+                nameImageHome.image = imageButton[homeNumber]
+                nameImageVisitor.image = imageButton[visitorNumber]
+            } else {
+                nameImageHome.image = nil
+                nameImageVisitor.image = nil
+            }
         }
         
         // this function will be used when the players tie
@@ -94,6 +129,13 @@ class ViewController: UIViewController {
             playCountLabel.text = "Plays: \(plays) - Ties: \(ties)"
             homeWinsLabel.text = "Home: \(homeWins)"
             visitorWinsLabel.text = "Visitor: \(visitorWins)"
+            if showImageButton == true {
+                nameImageHome.image = imageButton[homeNumber]
+                nameImageVisitor.image = imageButton[visitorNumber]
+            } else {
+                nameImageHome.image = nil
+                nameImageVisitor.image = nil
+            }
         }
         
         if homeNumber == visitorNumber {
@@ -125,3 +167,4 @@ class ViewController: UIViewController {
         }
     }
 }
+
