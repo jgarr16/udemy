@@ -21,7 +21,7 @@ class ViewController: UIViewController {
     let loseHomeArray = [#imageLiteral(resourceName: "gawiLose"),#imageLiteral(resourceName: "bawiLose"),#imageLiteral(resourceName: "boLose")]
     let loseVisitorArray = [#imageLiteral(resourceName: "alt_gawiLose"), #imageLiteral(resourceName: "alt_bawiLose"), #imageLiteral(resourceName: "alt_boLose")]
     let imageButton = [#imageLiteral(resourceName: "gawi"), #imageLiteral(resourceName: "bawi"), #imageLiteral(resourceName: "bo")]
-    var showImageButton = false
+    var showImageButton = true
     
     // set some variables for scorekeeping
     var homeWins = 0
@@ -49,11 +49,11 @@ class ViewController: UIViewController {
         homeWinsLabel.text = "Home: \(homeWins)"
         visitorWinsLabel.text = "Visitor: \(visitorWins)"
         if showImageButton == true {
-            nameImageHome.image = imageButton[0]
-            nameImageVisitor.image = imageButton[1]
-        } else {
             nameImageHome.image = nil
             nameImageVisitor.image = nil
+        } else {
+            nameImageHome.image = imageButton[0]
+            nameImageVisitor.image = imageButton[0]
         }
     }
     
@@ -81,7 +81,7 @@ class ViewController: UIViewController {
         // this function will be called when the home player wins a round
         func homeVictory(homeNumber: Int, visitorNumber: Int) {
             handImageHome.image = winHomeArray[homeNumber]
-            handImageVisitor.image = loseVisitorArray[visitorNumber]
+            handImageVisitor.image = greyVisitorArray[visitorNumber]
             homeWins = homeWins + 1
             plays = plays + 1
             print("play: \(plays)\n - Visitor: \(iconText[visitorNumber]) -- Rounds: \(visitorWins)\n - Home: \(iconText[homeNumber]) -- Rounds: \(homeWins)")
@@ -91,7 +91,7 @@ class ViewController: UIViewController {
             visitorWinsLabel.text = "Visitor: \(visitorWins)"
             if showImageButton == true {
                 nameImageHome.image = imageButton[homeNumber]
-                nameImageVisitor.image = imageButton[visitorNumber]
+                nameImageVisitor.image = nil
             } else {
                 nameImageHome.image = nil
                 nameImageVisitor.image = nil
@@ -100,7 +100,7 @@ class ViewController: UIViewController {
         
         // this function is for the visitor's wins
         func visitorVictory(homeNumber: Int, visitorNumber: Int) {
-            handImageHome.image = loseHomeArray[homeNumber]
+            handImageHome.image = greyHomeArray[homeNumber]
             handImageVisitor.image = winVisitorArray[visitorNumber]
             visitorWins = visitorWins + 1
             plays = plays + 1
@@ -110,7 +110,7 @@ class ViewController: UIViewController {
             homeWinsLabel.text = "Home: \(homeWins)"
             visitorWinsLabel.text = "Visitor: \(visitorWins)"
             if showImageButton == true {
-                nameImageHome.image = imageButton[homeNumber]
+                nameImageHome.image = nil
                 nameImageVisitor.image = imageButton[visitorNumber]
             } else {
                 nameImageHome.image = nil
@@ -130,8 +130,8 @@ class ViewController: UIViewController {
             homeWinsLabel.text = "Home: \(homeWins)"
             visitorWinsLabel.text = "Visitor: \(visitorWins)"
             if showImageButton == true {
-                nameImageHome.image = imageButton[homeNumber]
-                nameImageVisitor.image = imageButton[visitorNumber]
+                nameImageHome.image = nil
+                nameImageVisitor.image = nil
             } else {
                 nameImageHome.image = nil
                 nameImageVisitor.image = nil
