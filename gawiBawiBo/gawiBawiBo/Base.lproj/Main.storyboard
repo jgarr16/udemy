@@ -82,6 +82,13 @@
                                     <action selector="languageSwitch:" destination="BYZ-38-t0r" eventType="valueChanged" id="nuR-j6-mV0"/>
                                 </connections>
                             </switch>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="visitorLabel" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HLy-MF-kjg">
+                                <rect key="frame" x="-70" y="158" width="554" height="120"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="100"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -101,6 +108,7 @@
                         <outlet property="nameImageHome" destination="aqH-3S-ZyT" id="BcX-i1-rr9"/>
                         <outlet property="nameImageVisitor" destination="UFD-Pk-Y3k" id="bHa-io-1ie"/>
                         <outlet property="playCountLabel" destination="btE-l2-4hh" id="TIb-fg-Xyh"/>
+                        <outlet property="visitorLabel" destination="HLy-MF-kjg" id="Hc7-Pd-3Q7"/>
                         <outlet property="visitorWinsLabel" destination="nbQ-4o-JhP" id="Uey-5s-jBR"/>
                     </connections>
                 </viewController>

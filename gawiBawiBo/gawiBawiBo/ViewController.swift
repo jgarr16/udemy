@@ -15,7 +15,8 @@ class ViewController: UIViewController {
     // 2. Lose - Visitor & Home
     // 3. Win - Visitor & Home
     let greyHomeArray = [#imageLiteral(resourceName: "gawiGrey"),#imageLiteral(resourceName: "bawiGrey"),#imageLiteral(resourceName: "boGrey")]
-    let iconText = ["가위","바위","보"]
+    let iconTextHan = ["가위","바위","보"]
+    let iconTextEng = ["Scissors","Rock","Paper"]
     let greyVisitorArray = [#imageLiteral(resourceName: "alt_gawiGrey"), #imageLiteral(resourceName: "alt_bawiGrey"), #imageLiteral(resourceName: "alt_boGrey")]
     let winHomeArray = [#imageLiteral(resourceName: "gawiWin"),#imageLiteral(resourceName: "bawiWin"),#imageLiteral(resourceName: "boWin")]
     let winVisitorArray = [#imageLiteral(resourceName: "alt_gawiWin"), #imageLiteral(resourceName: "alt_bawiWin"), #imageLiteral(resourceName: "alt_boWin")]
@@ -41,6 +42,7 @@ class ViewController: UIViewController {
     @IBOutlet weak var playCountLabel: UILabel!
     @IBOutlet weak var visitorWinsLabel: UILabel!
     @IBOutlet weak var homeWinsLabel: UILabel!
+    @IBOutlet weak var visitorLabel: UILabel!
     
     
     override func viewDidLoad() {
@@ -70,9 +72,9 @@ class ViewController: UIViewController {
 
     @IBAction func languageSwitch(_ sender: Any) {
         if (sender as AnyObject).isOn {
-            showLanguage = "Hangul"
+            showLanguage = "Han"
         } else {
-            showLanguage = "English"
+            showLanguage = "Eng"
         }
     }
     
@@ -93,8 +95,13 @@ class ViewController: UIViewController {
             handImageVisitor.image = greyVisitorArray[visitorNumber]
             homeWins = homeWins + 1
             plays = plays + 1
-            print("play: \(plays)\n - Visitor: \(iconText[visitorNumber]) -- Rounds: \(visitorWins)\n - Home: \(iconText[homeNumber]) -- Rounds: \(homeWins)")
-            print("homeWins: \(homeWins)\n")
+            if showLanguage == "Han" {
+                print("play: \(plays)\n - Visitor: \(iconTextHan[visitorNumber]) -- Rounds: \(visitorWins)\n - Home: \(iconTextHan[homeNumber]) -- Rounds: \(homeWins)")
+                print("homeWins: \(homeWins)\n")
+            } else if showLanguage == "Eng" {
+                print("play: \(plays)\n - Visitor: \(iconTextEng[visitorNumber]) -- Rounds: \(visitorWins)\n - Home: \(iconTextEng[homeNumber]) -- Rounds: \(homeWins)")
+                print("homeWins: \(homeWins)\n")
+            }
             playCountLabel.text = "Plays: \(plays) - Ties: \(ties)"
             homeWinsLabel.text = "Home: \(homeWins)"
             visitorWinsLabel.text = "Visitor: \(visitorWins)"
@@ -113,8 +120,13 @@ class ViewController: UIViewController {
             handImageVisitor.image = winVisitorArray[visitorNumber]
             visitorWins = visitorWins + 1
             plays = plays + 1
-            print("play: \(plays)\n - Visitor: \(iconText[visitorNumber]) -- Rounds: \(visitorWins)\n - Home: \(iconText[homeNumber]) -- Rounds: \(homeWins)")
-            print("visitorWins: \(visitorWins)\n")
+            if showLanguage == "Han" {
+                print("play: \(plays)\n - Visitor: \(iconTextHan[visitorNumber]) -- Rounds: \(visitorWins)\n - Home: \(iconTextHan[homeNumber]) -- Rounds: \(homeWins)")
+                print("visitorWins: \(visitorWins)\n")
+            } else if showLanguage == "Eng" {
+                print("play: \(plays)\n - Visitor: \(iconTextEng[visitorNumber]) -- Rounds: \(visitorWins)\n - Home: \(iconTextEng[homeNumber]) -- Rounds: \(homeWins)")
+                print("visitorWins: \(visitorWins)\n")
+            }
             playCountLabel.text = "Plays: \(plays) - Ties: \(ties)"
             homeWinsLabel.text = "Home: \(homeWins)"
             visitorWinsLabel.text = "Visitor: \(visitorWins)"
@@ -124,6 +136,7 @@ class ViewController: UIViewController {
             } else {
                 nameImageHome.image = nil
                 nameImageVisitor.image = nil
+                visitorLabel.text = iconTextEng[visitorNumber]
             }
         }
         
@@ -133,8 +146,13 @@ class ViewController: UIViewController {
             handImageVisitor.image = greyVisitorArray[visitorNumber]
             ties = ties + 1
             plays = plays + 1
-            print("play: \(plays)\n - Visitor: \(iconText[visitorNumber]) -- Rounds: \(visitorWins)\n - Home: \(iconText[homeNumber]) -- Rounds: \(homeWins)")
-            print("ties: \(ties)\n")
+            if showLanguage == "Han" {
+                print("play: \(plays)\n - Visitor: \(iconTextHan[visitorNumber]) -- Rounds: \(visitorWins)\n - Home: \(iconTextHan[homeNumber]) -- Rounds: \(homeWins)")
+                print("ties: \(ties)\n")
+            } else if showLanguage == "Eng" {
+                print("play: \(plays)\n - Visitor: \(iconTextEng[visitorNumber]) -- Rounds: \(visitorWins)\n - Home: \(iconTextEng[homeNumber]) -- Rounds: \(homeWins)")
+                print("ties: \(ties)\n")
+            }
             playCountLabel.text = "Plays: \(plays) - Ties: \(ties)"
             homeWinsLabel.text = "Home: \(homeWins)"
             visitorWinsLabel.text = "Visitor: \(visitorWins)"
