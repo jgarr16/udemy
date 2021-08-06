@@ -20,11 +20,8 @@ class ViewController: UIViewController {
     let greyVisitorArray = [#imageLiteral(resourceName: "alt_gawiGrey"), #imageLiteral(resourceName: "alt_bawiGrey"), #imageLiteral(resourceName: "alt_boGrey")]
     let winHomeArray = [#imageLiteral(resourceName: "gawiWin"),#imageLiteral(resourceName: "bawiWin"),#imageLiteral(resourceName: "boWin")]
     let winVisitorArray = [#imageLiteral(resourceName: "alt_gawiWin"), #imageLiteral(resourceName: "alt_bawiWin"), #imageLiteral(resourceName: "alt_boWin")]
-    let loseHomeArray = [#imageLiteral(resourceName: "gawiLose"),#imageLiteral(resourceName: "bawiLose"),#imageLiteral(resourceName: "boLose")]
-    let loseVisitorArray = [#imageLiteral(resourceName: "alt_gawiLose"), #imageLiteral(resourceName: "alt_bawiLose"), #imageLiteral(resourceName: "alt_boLose")]
-    let imageButton = [#imageLiteral(resourceName: "gawi"), #imageLiteral(resourceName: "bawi"), #imageLiteral(resourceName: "bo")]
     var showImageButton = true
-    var showLanguage = ""
+    var showLanguage = "Han"
     
     // set some variables for scorekeeping
     var homeWins = 0
@@ -35,15 +32,13 @@ class ViewController: UIViewController {
     
     // Created the IBOutlets by Control-dragging from the two die images in the Main.storyboard to here - this created the linkage between the UI and the code
 
-    @IBOutlet weak var nameImageHome: UIImageView!
-    @IBOutlet weak var nameImageVisitor: UIImageView!
     @IBOutlet weak var handImageHome: UIImageView!
     @IBOutlet weak var handImageVisitor: UIImageView!
     @IBOutlet weak var playCountLabel: UILabel!
     @IBOutlet weak var visitorWinsLabel: UILabel!
     @IBOutlet weak var homeWinsLabel: UILabel!
     @IBOutlet weak var visitorLabel: UILabel!
-    
+    @IBOutlet weak var homeLabel: UILabel!
     
     override func viewDidLoad() {
         // show the greyHome and greyVisitor Arrays in sequence "Gawi, Bawi, Bo"
@@ -53,11 +48,11 @@ class ViewController: UIViewController {
         homeWinsLabel.text = "Home: \(homeWins)"
         visitorWinsLabel.text = "Visitor: \(visitorWins)"
         if showImageButton == true {
-            nameImageHome.image = nil
-            nameImageVisitor.image = nil
+            visitorLabel.text = nil
+            homeLabel.text = nil
         } else {
-            nameImageHome.image = imageButton[0]
-            nameImageVisitor.image = imageButton[0]
+            visitorLabel.text = nil
+            homeLabel.text = nil
         }
     }
     
@@ -106,11 +101,11 @@ class ViewController: UIViewController {
             homeWinsLabel.text = "Home: \(homeWins)"
             visitorWinsLabel.text = "Visitor: \(visitorWins)"
             if showImageButton == true {
-                nameImageHome.image = imageButton[homeNumber]
-                nameImageVisitor.image = nil
+                if showLanguage == "Han" { homeLabel.text = iconTextHan[homeNumber] } else if showLanguage == "Eng" {homeLabel.text = iconTextEng[homeNumber] } else { homeLabel.text = nil }
+                visitorLabel.text = nil
             } else {
-                nameImageHome.image = nil
-                nameImageVisitor.image = nil
+                visitorLabel.text = nil
+                homeLabel.text = nil
             }
         }
         
@@ -131,12 +126,11 @@ class ViewController: UIViewController {
             homeWinsLabel.text = "Home: \(homeWins)"
             visitorWinsLabel.text = "Visitor: \(visitorWins)"
             if showImageButton == true {
-                nameImageHome.image = nil
-                nameImageVisitor.image = imageButton[visitorNumber]
-            } else {
-                nameImageHome.image = nil
-                nameImageVisitor.image = nil
-                visitorLabel.text = iconTextEng[visitorNumber]
+                if showLanguage == "Han" { visitorLabel.text = iconTextHan[visitorNumber] } else if showLanguage == "Eng" {visitorLabel.text = iconTextEng[visitorNumber] } else { visitorLabel.text = nil }
+                homeLabel.text = nil
+            } else if showImageButton == false {
+                visitorLabel.text = nil
+                homeLabel.text = nil
             }
         }
         
@@ -157,11 +151,11 @@ class ViewController: UIViewController {
             homeWinsLabel.text = "Home: \(homeWins)"
             visitorWinsLabel.text = "Visitor: \(visitorWins)"
             if showImageButton == true {
-                nameImageHome.image = nil
-                nameImageVisitor.image = nil
+                visitorLabel.text = nil
+                homeLabel.text = nil
             } else {
-                nameImageHome.image = nil
-                nameImageVisitor.image = nil
+                visitorLabel.text = nil
+                homeLabel.text = nil
             }
         }
         

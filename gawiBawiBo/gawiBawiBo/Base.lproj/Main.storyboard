@@ -56,14 +56,6 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="UFD-Pk-Y3k">
-                                <rect key="frame" x="87" y="172" width="240" height="128"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            </imageView>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="aqH-3S-ZyT">
-                                <rect key="frame" x="87" y="607" width="240" height="128"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            </imageView>
                             <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" title="nameImageSwitch" translatesAutoresizingMaskIntoConstraints="NO" id="nJG-LI-rr1">
                                 <rect key="frame" x="33" y="831" width="49" height="31"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -73,7 +65,7 @@
                                     <action selector="nameImageSwitch:" destination="BYZ-38-t0r" eventType="valueChanged" id="uRe-j3-nsc"/>
                                 </connections>
                             </switch>
-                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="vQQ-6l-pkg">
+                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="vQQ-6l-pkg">
                                 <rect key="frame" x="332" y="831" width="49" height="31"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="onTintColor" systemColor="systemGrayColor"/>
@@ -82,11 +74,16 @@
                                     <action selector="languageSwitch:" destination="BYZ-38-t0r" eventType="valueChanged" id="nuR-j6-mV0"/>
                                 </connections>
                             </switch>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="visitorLabel" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HLy-MF-kjg">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="visitorLabel" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="HLy-MF-kjg">
                                 <rect key="frame" x="-70" y="158" width="554" height="120"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="100"/>
-                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="homeLabel" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="oef-dQ-jfx">
+                                <rect key="frame" x="-58" y="611" width="530" height="120"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="100"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
@@ -104,9 +101,8 @@
                     <connections>
                         <outlet property="handImageHome" destination="Owo-Jk-r5l" id="vvT-aG-2zR"/>
                         <outlet property="handImageVisitor" destination="RXX-1s-aMe" id="6Le-P6-Ogb"/>
+                        <outlet property="homeLabel" destination="oef-dQ-jfx" id="yhy-93-vRw"/>
                         <outlet property="homeWinsLabel" destination="SNR-UV-8Jy" id="4on-6H-zvh"/>
-                        <outlet property="nameImageHome" destination="aqH-3S-ZyT" id="BcX-i1-rr9"/>
-                        <outlet property="nameImageVisitor" destination="UFD-Pk-Y3k" id="bHa-io-1ie"/>
                         <outlet property="playCountLabel" destination="btE-l2-4hh" id="TIb-fg-Xyh"/>
                         <outlet property="visitorLabel" destination="HLy-MF-kjg" id="Hc7-Pd-3Q7"/>
                         <outlet property="visitorWinsLabel" destination="nbQ-4o-JhP" id="Uey-5s-jBR"/>
