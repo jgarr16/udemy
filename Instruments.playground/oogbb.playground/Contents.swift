@@ -6,6 +6,9 @@ class Player {
     var loses:Int = 0
     var ties:Int = 0
     var plays:Int = 0
+    func win() {
+        wins += 1
+    }
 }
 
 class Gamepiece {
@@ -42,5 +45,9 @@ bo.beats = "bawi"
 bo.beatBy = "gawi"
 
 
-bo.lose()
+let home:Player = Player()
+
+print(home.wins)
+home.win()
+print(home.wins)
 
