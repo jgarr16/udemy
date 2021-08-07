@@ -1,5 +1,13 @@
 
 // the class
+class Player {
+    var name:String = ""
+    var wins:Int = 0
+    var loses:Int = 0
+    var ties:Int = 0
+    var plays:Int = 0
+}
+
 class Gamepiece {
     var fingers:Int = 0
     var beats:String = ""
