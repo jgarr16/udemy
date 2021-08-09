@@ -5,15 +5,24 @@
 //  Created by John Garrigues on 8/6/21.
 //
 
-import UIKit
+import Foundation
+// define the Player class
 
-class ViewController: UIViewController {
+class Player {
+    // properties
+    var name: String = ""
+    var wins: Int = 0
+    var loses: Int = 0
+    var ties: Int = 0
+    var plays: Int = 0
 
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        // Do any additional setup after loading the view.
+    // do I need an initializer, or is it automatically provided?
+
+    // methods
+    func win() {
+        wins += 1
     }
-
-
 }
+
+
 
