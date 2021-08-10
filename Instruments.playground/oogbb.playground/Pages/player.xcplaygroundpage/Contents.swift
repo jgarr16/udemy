@@ -52,10 +52,11 @@ visitor.name = "Kyong"
 
 home.noun
 home.win()
+home.win()
 //home.win()
 
 //print("This player's name is \(home.name).")
-print("\(home.name) has \(home.wins) \(home.plural(noun:"win",count:Int("\(home.wins)")!)), \(home.loses) \(home.noun), and \(home.ties) \(home.noun).")
+print("\(home.name) has \(home.wins)" + (home.wins != 1 ? " wins" : " win"))
 //print()
 //print("This player's name is \(visitor.name).")
 //print("\(visitor.name) has \(visitor.wins) wins, \(visitor.loses) loses, and \(visitor.ties) ties.")
