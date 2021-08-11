@@ -1,9 +1,10 @@
 
 
-//
+// class for the people playing gawi-bawi-bo
 class Player {
     // properties
-    var name: String = ""
+    var engName: String = ""
+    var hanName: String = ""
     var wins: Int = 0
     var loses: Int = 0
     var ties: Int = 0
@@ -11,7 +12,7 @@ class Player {
     var noun: String = ""
     var result: String = ""
     
-    // an initializer is like a constructor; it's used to initialize a property
+    // methods
     func win() {
         wins += 1
     }
@@ -22,20 +23,45 @@ class Player {
         ties += 1
     }
 }
+// class for the gamepieces (hands) used to play
+class Hand {
+    // properties
+    var engName: String = ""
+    var hanName: String = ""
+    var beats: String = ""
+    var beatBy: String = ""
+}
+
+let gawi: Hand = Hand()
+gawi.engName = "scissors"
+gawi.hanName = "가위"
+gawi.beats = "bo"
+gawi.beatBy = "bawi"
+
+let bawi: Hand = Hand()
+bawi.engName = "rock"
+bawi.hanName = "바위"
+bawi.beats = "gawi"
+bawi.beatBy = "bo"
+
+let bo: Hand = Hand()
+bo.engName = "paper"
+bo.hanName = "보"
+bo.beats = "bawi"
+bo.beatBy = "gawi"
+
+let a: Player = Player()
+a.engName = "John"
+let b: Player = Player()
+b.engName = "Kyong"
 
 
-let home: Player = Player()
-home.name = "John"
-let visitor: Player = Player()
-visitor.name = "Kyong"
 
 
-home.noun
-home.win()
-home.win()
-visitor.win()
+// using ternary conditional operator, which takes the form (question ? answer1 : answer2), to pluralize/singluarize adverbs
+print("\(a.engName) has \(a.wins)" + (a.wins != 1 ? " wins, " : " win, ") + "\(a.loses)" + (a.loses != 1 ? " losses, " : " loss, ") + "and \(a.ties)" + (a.ties != 1 ? " ties." : " tie."))
+print("\(b.engName) has \(b.wins)" + (b.wins != 1 ? " wins, " : " win, ") + "\(b.loses)" + (b.loses != 1 ? " losses, " : " loss, ") + "and \(b.ties)" + (b.ties != 1 ? " ties." : " tie."))
 
-
-print("\(home.name) has \(home.wins)" + (home.wins != 1 ? " wins, " : " win, ") + "\(home.loses)" + (home.loses != 1 ? " losses, " : " loss, ") + "and \(home.ties)" + (home.ties != 1 ? " ties." : " tie."))
-print("\(visitor.name) has \(visitor.wins)" + (visitor.wins != 1 ? " wins, " : " win, ") + "\(visitor.loses)" + (visitor.loses != 1 ? " losses, " : " loss, ") + "and \(visitor.ties)" + (visitor.ties != 1 ? " ties." : " tie."))
-
+bo.hanName
+gawi.hanName
+bawi.hanName
