@@ -50,6 +50,10 @@ bo.hanName = "보"
 bo.beats = "bawi"
 bo.beatBy = "gawi"
 
+let hands = [gawi, bawi, bo]
+hands[0]
+hands[1]
+
 let a: Player = Player()
 a.engName = "John"
 let b: Player = Player()
