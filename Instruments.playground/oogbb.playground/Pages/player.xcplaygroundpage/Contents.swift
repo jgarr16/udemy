@@ -62,6 +62,7 @@ b.engName = "Kyong"
 
 
 
+
 // using ternary conditional operator, which takes the form (question ? answer1 : answer2), to pluralize/singluarize adverbs
 print("\(a.engName) has \(a.wins)" + (a.wins != 1 ? " wins, " : " win, ") + "\(a.loses)" + (a.loses != 1 ? " losses, " : " loss, ") + "and \(a.ties)" + (a.ties != 1 ? " ties." : " tie."))
 print("\(b.engName) has \(b.wins)" + (b.wins != 1 ? " wins, " : " win, ") + "\(b.loses)" + (b.loses != 1 ? " losses, " : " loss, ") + "and \(b.ties)" + (b.ties != 1 ? " ties." : " tie."))
