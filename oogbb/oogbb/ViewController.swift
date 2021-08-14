@@ -40,24 +40,25 @@ class Hand {
     var beatBy: String = ""
 }
 
-let gawi: Hand = Hand()
+func applicationDidFinishLaunching() {
+    let gawi: Hand = Hand()
     gawi.engName = "scissors"
     gawi.hanName = "가위"
     gawi.beats = "bo"
     gawi.beatBy = "bawi"
 
-let bawi: Hand = Hand()
+    let bawi: Hand = Hand()
     bawi.engName = "rock"
     bawi.hanName = "바위"
     bawi.beats = "gawi"
     bawi.beatBy = "bo"
 
-let bo: Hand = Hand()
+    let bo: Hand = Hand()
     bo.engName = "paper"
     bo.hanName = "보"
     bo.beats = "bawi"
     bo.beatBy = "gawi"
-
+}
 
 let a: Player = Player()
 a.engName = "John"
