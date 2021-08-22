@@ -26,5 +26,5 @@ public class Day {
 }
 
 let day = Day()
-let randDay = day.dayOfTheWeek(day: Int.random(in: 0...6))
+let randDay = day.dayOfTheWeek(day: Int.random(in: 1...7))
 print(randDay)
