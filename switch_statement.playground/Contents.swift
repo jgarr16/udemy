@@ -3,21 +3,29 @@
 func dayOfTheWeek(day: Int) {
     switch day {
     case 1:
-        print("Monday")
+//          print("Monday")
+        return Monday
     case 2:
-        print("Tuesday")
+//          print("Tuesday")
+        return Tuesday
     case 3:
-        print("Wednesday")
+//          print("Wednesday")
+        return Wednesday
     case 4:
-        print("Thursday")
+//          print("Thursday")
+        return Thursday
     case 5:
-        print("Friday")
+//          print("Friday")
+        return Friday
     case 6:
-        print("Saturday")
+//          print("Saturday")
+        return Saturday
     case 7:
-        print("Sunday")
+//          print("Sunday")
+        return Sunday
     default:
-        print("Error")
+//          print("Error")
+        return Error
     }
 }
 
